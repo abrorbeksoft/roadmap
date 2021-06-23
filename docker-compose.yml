@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: library/postgres:12-alpine
+    container_name: roadmap-master-postgresql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: roadmap
+      TZ: 'GMT+5'
+      PGTZ: 'GMT+5'
+    volumes:
+      - ./runtime/postgresql:/var/lib/postgresql/roadmap
+    ports:
+      - 5432:5432
